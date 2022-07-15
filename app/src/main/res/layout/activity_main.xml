@@ -79,15 +79,19 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:textSize="20dp"
-
+            android:textColor="@color/black"
             android:text="Total"/>
 
 
-        <EditText
+        <TextView
             android:inputType="number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:hint="Total"
+            android:gravity="center|start"
+            android:paddingStart="10dp"
+            android:textColor="@color/black"
             android:id="@+id/et_total"/>
     </LinearLayout>
     <LinearLayout
