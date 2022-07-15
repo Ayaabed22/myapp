@@ -40,6 +40,7 @@
             android:textSize="20dp" />
 
         <EditText
+            android:maxLength="6"
             android:inputType="number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -58,10 +59,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
+
             android:text="Nmber2"
             android:textSize="20dp"/>
 
         <EditText
+            android:maxLength="6"
             android:inputType="number"
             android:id="@+id/et_number2"
             android:layout_width="wrap_content"
@@ -92,7 +95,7 @@
             android:gravity="center|start"
             android:paddingStart="10dp"
             android:textColor="@color/black"
-            android:id="@+id/et_total"/>
+            android:id="@+id/tv_total"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="wrap_content"

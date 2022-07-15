@@ -2,118 +2,87 @@ package com.example.myapplication
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
+import android.os.TokenWatcher
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 
-class MainActivity : AppCompatActivity() , View.OnClickListener{
-    private lateinit var number1:EditText
-    private lateinit var number2:EditText
-    private lateinit var total:TextView
-    private lateinit var btnAdd:Button
-    private lateinit var btnSub:Button
-    private lateinit var btnMul:Button
-    private lateinit var btnMod:Button
-
+class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        initViews()
+
+        val Number1 = findViewById<EditText>(R.id.et_number1)
+        val Number2 = findViewById<EditText>(R.id.et_number2)
+        val Total = findViewById<TextView>(R.id.tv_total)
+        val btnadd = findViewById<Button>(R.id.btn_Add)
+        val btnsub = findViewById<Button>(R.id.btn_sub)
+        val btnmul = findViewById<Button>(R.id.btn_mul)
+        val btnmod = findViewById<Button>(R.id.btn_mod)
 
 
-    }
-
-    private fun initViews(){
-        number1 = findViewById(R.id.et_number1)
-        number2 = findViewById(R.id.et_number2)
-        total = findViewById(R.id.et_total)
-        btnAdd = findViewById(R.id.btn_Add)
-        btnSub = findViewById(R.id.btn_sub)
-        btnMul = findViewById(R.id.btn_mul)
-        btnMod = findViewById(R.id.btn_mod)
-
-        btnAdd.setOnClickListener(this)
-        btnSub.setOnClickListener(this)
-        btnMul.setOnClickListener(this)
-        btnMod.setOnClickListener(this)
-    }
-
-    override fun onClick(p0: View?) {
-        when(p0?.id){
-            R.id.btn_Add -> {
-                val var1 = number1.text.toString().toLongOrNull()
-                val var2 = number2.text.toString().toLongOrNull()
-
-                if (var1 != null && var2 != null) {
-
+        btnadd.setOnClickListener {
+            val var1 = Number1.text.toString().toLongOrNull()
+            val var2 = Number2.text.toString().toLongOrNull()
+            if (var1 == null || var2 == null) {
+                Toast.makeText(this@MainActivity, "Worng Number", Toast.LENGTH_LONG).show()
+            }
+                else {
                     val result = var1 + var2
-                    total.text = result.toString()
+                    Total.setText(result.toString())
                     Toast.makeText(this@MainActivity, "$result", Toast.LENGTH_LONG).show()
-
-
-                } else {
-                    println("$var1+$var2")
-
-                    Toast.makeText(this@MainActivity, "Wong Number", Toast.LENGTH_LONG).show()
                 }
-            }
-            R.id.btn_sub -> {
-                val var1 = number1.text.toString().toLongOrNull()
-                val var2 = number2.text.toString().toLongOrNull()
+        }
 
-                if (var1 != null && var2 != null) {
+            btnsub.setOnClickListener {
 
+                val var1 = Number1.text.toString().toLongOrNull()
+                val var2 = Number2.text.toString().toLongOrNull()
+
+                if (var1 == null || var2 == null) {
+                    Toast.makeText(this@MainActivity, "Worng Number", Toast.LENGTH_LONG).show()
+                } else {
                     val result = var1 - var2
-                    total.text = result.toString()
+                    Total.setText(result.toString())
                     Toast.makeText(this@MainActivity, "$result", Toast.LENGTH_LONG).show()
 
-
-                } else {
-                    println("$var1-$var2")
-
-                    Toast.makeText(this@MainActivity, "Wong Number", Toast.LENGTH_LONG).show()
                 }
             }
+            btnmul.setOnClickListener {
 
-            R.id.btn_mul ->{
-                val var1 = number1.text.toString().toLongOrNull()
-                val var2 = number2.text.toString().toLongOrNull()
+                val var1 = Number1.text.toString().toLongOrNull()
+                val var2 = Number2.text.toString().toLongOrNull()
 
-                if (var1 != null && var2 != null) {
-
+                if (var1 == null || var2 == null) {
+                    Toast.makeText(this@MainActivity, "Worng Number", Toast.LENGTH_LONG).show()
+                } else {
                     val result = var1 * var2
-                    total.text = result.toString()
+                    Total.setText(result.toString())
                     Toast.makeText(this@MainActivity, "$result", Toast.LENGTH_LONG).show()
-
-
-                } else {
-                    println("$var1*$var2")
-
-                    Toast.makeText(this@MainActivity, "Wong Number", Toast.LENGTH_LONG).show()
                 }
             }
+            btnmod.setOnClickListener {
 
-            R.id.btn_mod -> {
-                val var1 = number1.text.toString().toLongOrNull()
-                val var2 = number2.text.toString().toLongOrNull()
+                val var1 = Number1.text.toString().toLongOrNull()
+                val var2 = Number2.text.toString().toLongOrNull()
 
-                if (var1 != null && var2 != null) {
-
-                    val result = var1 % var2
-                    total.text = result.toString()
-                    Toast.makeText(this@MainActivity, "$result", Toast.LENGTH_LONG).show()
-
-
+                if (var1 == null || var2 == null) {
+                    Toast.makeText(this@MainActivity, "Worng Number", Toast.LENGTH_LONG).show()
                 } else {
-                    println("$var1%$var2")
-
-                    Toast.makeText(this@MainActivity, "Wong Number", Toast.LENGTH_LONG).show()
+                    val result = var1 % var2
+                    Total.setText(result.toString())
+                    Toast.makeText(this@MainActivity, "$result", Toast.LENGTH_LONG).show()
                 }
             }
         }
     }
-}
+
+
+
+
+
+
+
 
 
