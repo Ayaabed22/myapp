@@ -131,10 +131,6 @@
             android:id="@+id/btn_mod"
             />
     </LinearLayout>
-
-    />
-
-
 </LinearLayout>
 
 
